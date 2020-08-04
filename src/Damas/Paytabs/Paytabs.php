@@ -20,11 +20,10 @@ class Paytabs {
 
 	public function authentication(){
 		$obj = json_decode($this->runPost(AUTHENTICATION, array("merchant_email"=> $this->merchant_email, "secret_key"=>  $this->secret_key)));
-		if(is_object($obj) and $obj->access == "granted")
-			$this->api_key = $obj->api_key;
-		else
-			$this->api_key = "";
-		return $this->api_key;
+        if (is_object($obj) and $obj->result == "valid") {
+            return true;
+        }
+        return false;
 	}
 
 	public function create_pay_page($values) {
