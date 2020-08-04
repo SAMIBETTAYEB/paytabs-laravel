@@ -29,7 +29,7 @@ class Paytabs {
 	public function create_pay_page($values) {
 		$values['merchant_email'] = $this->merchant_email;
 		$values['secret_key'] = $this->secret_key;
-		$values['ip_customer'] = $_SERVER['REMOTE_ADDR'];
+        $values['ip_customer'] = $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
 		$values['ip_merchant'] = isset($_SERVER['SERVER_ADDR'])? $_SERVER['SERVER_ADDR'] : '::1';
 		return json_decode($this->runPost(PAYPAGE_URL, $values));
 	}
