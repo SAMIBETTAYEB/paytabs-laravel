@@ -30,7 +30,7 @@ class PaytabsServiceProvider extends ServiceProvider
         );
 
         $this->app->singleton(Paytabs::class, function() {
-			return new Paytabs(config('paytabs.merchant_email', ''), config('paytabs.secret_key', ''));
+			return new Paytabs(config('paytabs.merchant_email', ''), config('paytabs.secret_key', ''), config('paytabs.site_url', ''));
         });
     }
 }
