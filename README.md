@@ -4,7 +4,7 @@
 Begin by installing this package through Composer. Just run following command to terminal-
 
 ```php
-composer require maq89/paytabs-laravel
+composer require SAMIBETTAYEB/paytabs-laravel
 ```
 
 Once this operation completes the package will automatically be discovered for **Laravel 5.6 and above**, otherwise, the final step is to add the service provider. Open `config/app.php`, and add a new item to the providers array.
@@ -20,7 +20,7 @@ Now add the alias.
 ```php
 'aliases' => [
 	...
-	'Paytabs' => Damas\Paytabs\Facades\PaytabsFacade::class,
+	'Paytabs' => Damas\Paytabs\Facades\Paytabs::class,
 ],
 ```
 

@@ -13,7 +13,9 @@ class PaytabsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/../../../config/paytabs.php' => config_path('paytabs.php'),
+        ]);
     }
 
     /**
@@ -23,8 +25,12 @@ class PaytabsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton('Paytabs', function() {
-			return new Paytabs;
-	    });
+        $this->mergeConfigFrom(
+            __DIR__.'/../../../config/paytabs.php', 'paytabs'
+        );
+
+        $this->app->singleton(Paytabs::class, function() {
+			return new Paytabs(config('paytabs.merchant_email', ''), config('paytabs.secret_key', ''));
+        });
     }
 }

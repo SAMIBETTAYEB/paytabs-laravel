@@ -1,8 +1,9 @@
 <?php namespace Damas\Paytabs\Facades;
 
+use Damas\Paytabs\Paytabs as PaytabsClassName;
 use Illuminate\Support\Facades\Facade;
 
-class PaytabsFacade extends Facade {
+class Paytabs extends Facade {
 
     /**
      * Get the registered name of the component.
@@ -10,7 +11,7 @@ class PaytabsFacade extends Facade {
      * @return string
      */
     protected static function getFacadeAccessor() {
-        return 'Paytabs';
+        return PaytabsClassName::class;
     }
 
 }
